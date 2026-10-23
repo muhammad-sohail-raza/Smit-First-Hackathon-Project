@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Self-Service Dashboard — HCM Lite</title>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Master Application Stylesheet -->
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <div class="app-shell">
+    
+    <!-- EMPLOYEE SIDEBAR -->
+    <aside class="app-sidebar" id="sidebarNav" aria-label="Employee Navigation">
+      <div class="sidebar-brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <div class="brand-info">
+          <div class="brand-title">
+            HCM Lite
+            <span class="brand-badge" style="background-color: #E0E7FF; color: #4338CA;">Staff</span>
+          </div>
+          <span class="brand-subtitle">Employee Self-Service</span>
+        </div>
+      </div>
+
+      <div class="sidebar-nav-container">
+        <div>
+          <div class="nav-section-title">My Workspace</div>
+          <ul class="sidebar-nav">
+            <li class="nav-item">
+              <a href="employee.html" class="nav-link active" aria-current="page">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#my-attendance" class="nav-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>My Attendance</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#apply-leave" class="nav-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="12" y1="14" x2="12" y2="18"/><line x1="10" y1="16" x2="14" y2="16"/></svg>
+                <span>Apply for Leave</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#my-leaves" class="nav-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                <span>My Leaves</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="payslip.html" class="nav-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><circle cx="7" cy="15" r="1"/></svg>
+                <span>My Payslip</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="nav-section-title">Support & Updates</div>
+          <ul class="sidebar-nav">
+            <li class="nav-item">
+              <a href="#announcements" class="nav-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                <span>Announcements</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#smart-helper" class="nav-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                <span>Smart Helper</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Employee User Footer -->
+      <div class="sidebar-footer">
+        <div class="user-snippet">
+          <div class="user-avatar" style="background: linear-gradient(135deg, #4F46E5, #06B6D4);" title="John Doe">JD</div>
+          <div class="user-details">
+            <span class="user-name">John Doe</span>
+            <span class="user-role-label">john.doe@company.com</span>
+          </div>
+        </div>
+        <a href="../index.html" class="logout-btn" title="Sign Out">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        </a>
+      </div>
+    </aside>
+
+    <!-- MAIN WRAPPER -->
+    <div class="main-wrapper">
+      
+      <!-- TOP NAVIGATION BAR -->
+      <header class="app-topbar">
+        <div class="topbar-left">
+          <a href="#sidebarNav" class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </a>
+
+          <nav class="topbar-breadcrumbs" aria-label="Breadcrumbs">
+            <span>Employee</span>
+            <span class="separator">/</span>
+            <span class="current">My Dashboard</span>
+          </nav>
+        </div>
+
+        <div class="topbar-right">
+          <!-- Role switcher for testing -->
+          <a href="admin.html" class="role-switcher-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/></svg>
+            Switch to Admin View
+          </a>
+
+          <button type="button" class="icon-btn" aria-label="Notifications">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="18" height="18"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span class="badge-dot" aria-hidden="true"></span>
+          </button>
+
+          <div class="topbar-profile" role="button">
+            <div class="avatar" style="background: linear-gradient(135deg, #4F46E5, #06B6D4);">JD</div>
+            <div class="profile-text">
+              <span class="profile-name">John Doe</span>
+              <span class="profile-role">Software Engineer</span>
+            </div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+      </header>
+
+      <!-- PAGE CONTENT -->
+      <main class="page-content">
+        
+        <!-- WELCOME BANNER -->
+        <section class="welcome-banner" aria-label="Personal Work Summary">
+          <div class="welcome-banner-content">
+            <h2>Welcome back, John!</h2>
+            <p>Here's your personal attendance status, working hours, and leave balance summary.</p>
+            <div class="welcome-date-badge" id="empCurrentDateBadge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <span>Friday, October 24, 2026</span>
+            </div>
+          </div>
+
+          <div class="welcome-banner-actions">
+            <a href="payslip.html" class="btn btn-secondary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><circle cx="7" cy="15" r="1"/></svg>
+              View Latest Payslip
+            </a>
+          </div>
+        </section>
+
+        <!-- PROMINENT DAILY ATTENDANCE & PUNCH-IN CARD -->
+        <section class="card" id="attendanceCard" aria-label="Daily Attendance Action Card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">Daily Attendance & Time Tracker</h3>
+              <p class="card-subtitle">Punch in when beginning your workday and punch out upon departure</p>
+            </div>
+            <div class="card-actions">
+              <span class="badge badge-neutral" id="todayStatus">
+                <span class="badge-dot-indicator"></span> Not Checked In
+              </span>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); text-align: center; margin-bottom: var(--space-6); background-color: var(--color-surface-subtle); padding: var(--space-5); border-radius: var(--radius-lg); border: 1px solid var(--color-border);">
+              <div>
+                <span style="font-size: var(--font-size-xs); color: var(--color-text-secondary); text-transform: uppercase; font-weight: 600;">Check In Time</span>
+                <div style="font-size: var(--font-size-2xl); font-weight: 700; color: var(--color-text-main); margin-top: 4px;" id="displayCheckIn">
+                  —:—
+                </div>
+              </div>
+
+              <div>
+                <span style="font-size: var(--font-size-xs); color: var(--color-text-secondary); text-transform: uppercase; font-weight: 600;">Check Out Time</span>
+                <div style="font-size: var(--font-size-2xl); font-weight: 700; color: var(--color-text-main); margin-top: 4px;" id="displayCheckOut">
+                  —:—
+                </div>
+              </div>
+
+              <div>
+                <span style="font-size: var(--font-size-xs); color: var(--color-text-secondary); text-transform: uppercase; font-weight: 600;">Total Logged Hours</span>
+                <div style="font-size: var(--font-size-2xl); font-weight: 700; color: var(--color-primary); margin-top: 4px;" id="displayWorkHours">
+                  0h 00m
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Buttons for Time punch -->
+            <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
+              <button type="button" class="btn btn-primary btn-lg" id="checkInButton" style="min-width: 200px;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                Check In Now
+              </button>
+
+              <button type="button" class="btn btn-secondary btn-lg disabled" id="checkOutButton" style="min-width: 200px;" disabled>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></svg>
+                Check Out
+              </button>
+            </div>
+            
+            <div style="text-align: center; margin-top: var(--space-4);">
+              <span class="form-hint">
+                Standard shift starts at 09:00 AM with a 15-minute grace period. Check-in after 09:15 AM is logged as Late.
+              </span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PERSONAL KPI CARDS (4 GRID) -->
+        <section class="kpi-grid" aria-label="Personal Attendance Metrics">
+          <article class="kpi-card">
+            <div class="kpi-icon-wrap kpi-icon-green">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <div class="kpi-details">
+              <span class="kpi-label">Present Days</span>
+              <div class="kpi-value" id="empPresentDays">—</div>
+              <span class="kpi-subtext">Current month count</span>
+            </div>
+          </article>
+
+          <article class="kpi-card">
+            <div class="kpi-icon-wrap kpi-icon-red">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            </div>
+            <div class="kpi-details">
+              <span class="kpi-label">Absent Days</span>
+              <div class="kpi-value" id="empAbsentDays">—</div>
+              <span class="kpi-subtext">Affects salary deductions</span>
+            </div>
+          </article>
+
+          <article class="kpi-card">
+            <div class="kpi-icon-wrap kpi-icon-amber">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="kpi-details">
+              <span class="kpi-label">Late Arrivals</span>
+              <div class="kpi-value" id="empLateDays">—</div>
+              <span class="kpi-subtext">Logged past grace time</span>
+            </div>
+          </article>
+
+          <article class="kpi-card">
+            <div class="kpi-icon-wrap kpi-icon-blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <div class="kpi-details">
+              <span class="kpi-label">Leave Balance</span>
+              <div class="kpi-value" id="empRemainingLeaves">—</div>
+              <span class="kpi-subtext">Available paid days</span>
+            </div>
+          </article>
+        </section>
+
+        <!-- TWO-COLUMN WORKFLOW: APPLY FOR LEAVE & LEAVE REQUESTS -->
+        <div style="display: grid; grid-template-columns: 1.1fr 1.3fr; gap: var(--space-6);" id="apply-leave">
+          
+          <!-- APPLY FOR LEAVE CARD -->
+          <section class="card" aria-label="Apply For Leave Form Card">
+            <div class="card-header">
+              <div class="card-title-group">
+                <h3 class="card-title">Apply for Leave</h3>
+                <p class="card-subtitle">Submit a request for administrative review</p>
+              </div>
+              <span class="badge badge-primary" id="availableQuotaBadge">Quota: — days</span>
+            </div>
+
+            <div class="card-body">
+              <form id="leaveForm" method="post" action="#" novalidate>
+                <div class="form-group">
+                  <label for="leaveType" class="form-label">
+                    Leave Type <span class="required">*</span>
+                  </label>
+                  <select id="leaveType" name="leaveType" class="form-select" required>
+                    <option value="">Select Leave Category</option>
+                    <option value="Casual">Casual Leave</option>
+                    <option value="Sick">Sick Leave</option>
+                    <option value="Annual">Annual Leave</option>
+                    <option value="Unpaid">Unpaid Leave</option>
+                  </select>
+                </div>
+
+                <div class="form-grid-2">
+                  <div class="form-group">
+                    <label for="leaveFromDate" class="form-label">
+                      From Date <span class="required">*</span>
+                    </label>
+                    <input 
+                      type="date" 
+                      id="leaveFromDate" 
+                      name="fromDate" 
+                      class="form-control" 
+                      required
+                    >
+                  </div>
+
+                  <div class="form-group">
+                    <label for="leaveToDate" class="form-label">
+                      To Date <span class="required">*</span>
+                    </label>
+                    <input 
+                      type="date" 
+                      id="leaveToDate" 
+                      name="toDate" 
+                      class="form-control" 
+                      required
+                    >
+                  </div>
+                </div>
+
+                <div class="alert alert-info" style="padding: var(--space-3); margin-bottom: var(--space-4); font-size: var(--font-size-xs);">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="16" height="16"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                  <span id="calcWorkingDays">Calculated Working Days: — (Weekends excluded)</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="leaveReason" class="form-label">
+                    Reason for Leave <span class="required">*</span>
+                  </label>
+                  <textarea 
+                    id="leaveReason" 
+                    name="reason" 
+                    class="form-textarea" 
+                    placeholder="Briefly state the reason for absence..."
+                    required
+                  ></textarea>
+                </div>
+
+                <!-- Reserved area for date-validation, overlapping leave, or quota error messages -->
+                <div class="form-feedback" id="leaveFeedback"></div>
+
+                <button type="submit" class="btn btn-primary btn-block" id="submitLeaveBtn" style="margin-top: var(--space-3);">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                  Submit Leave Request
+                </button>
+              </form>
+            </div>
+          </section>
+
+          <!-- MY LEAVE REQUESTS TABLE CARD -->
+          <section class="card" id="my-leaves" aria-label="My Leave History">
+            <div class="card-header">
+              <div class="card-title-group">
+                <h3 class="card-title">My Leave Applications</h3>
+                <p class="card-subtitle">Track submission status and manager comments</p>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="data-table" id="myLeavesTable">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Date Range</th>
+                    <th>Days</th>
+                    <th>Status</th>
+                    <th>Admin Comment</th>
+                  </tr>
+                </thead>
+                <tbody id="myLeavesTableBody">
+                  <!-- Empty state row -->
+                  <tr>
+                    <td colspan="5" style="padding: 0;">
+                      <div class="empty-state" id="myLeavesEmptyState">
+                        <div class="empty-state-icon">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                          </svg>
+                        </div>
+                        <h4 class="empty-state-title">No leave requests</h4>
+                        <p class="empty-state-desc">
+                          Your submitted leave applications and approval statuses will appear here.
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- MY ATTENDANCE LOG TABLE SECTION -->
+        <section class="card" id="my-attendance" aria-label="My Attendance Log">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">My Attendance Log</h3>
+              <p class="card-subtitle">Personal check-in, check-out, and daily work hour records</p>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table" id="myAttendanceTable">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Check In</th>
+                  <th>Check Out</th>
+                  <th>Total Work Hours</th>
+                  <th>Attendance Status</th>
+                </tr>
+              </thead>
+              <tbody id="myAttendanceTableBody">
+                <!-- Clean Empty State -->
+                <tr>
+                  <td colspan="5" style="padding: 0;">
+                    <div class="empty-state" id="myAttendanceEmptyState">
+                      <div class="empty-state-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                          <circle cx="12" cy="12" r="10"/>
+                          <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                      </div>
+                      <h4 class="empty-state-title">No attendance history</h4>
+                      <p class="empty-state-desc">
+                        Daily time logs will appear here once you check in each morning.
+                      </p>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- TWO-COLUMN BOTTOM SECTION: SMART HELPER & ANNOUNCEMENTS -->
+        <div style="display: grid; grid-template-columns: 1.3fr 1fr; gap: var(--space-6);">
+          
+          <!-- EMPLOYEE SMART HELPER (PRIVACY-AWARE) -->
+          <section class="card smart-helper-card" id="smart-helper" aria-label="Personal Smart Helper">
+            <div class="smart-helper-header">
+              <div class="smart-helper-brand">
+                <div class="smart-helper-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <div>
+                  <h3 class="card-title">Smart Helper</h3>
+                  <p class="card-subtitle">Personal Self-Service Assistant</p>
+                </div>
+              </div>
+              <div class="privacy-notice">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span>Private & Restricted to Your Data</span>
+              </div>
+            </div>
+
+            <div class="smart-helper-body">
+              <div class="helper-suggestion-chips">
+                <button type="button" class="chip">How many leaves do I have left?</button>
+                <button type="button" class="chip">Was I late today?</button>
+                <button type="button" class="chip">How many hours did I work this week?</button>
+              </div>
+
+              <div class="chat-conversation" id="empChatContainer">
+                <div class="chat-bubble-agent">
+                  <strong>Assistant:</strong> Hello John! I'm your private HCM Lite Assistant. Ask me about your remaining leave quota, today's punch-in status, or monthly attendance summary.
+                </div>
+              </div>
+            </div>
+
+            <form class="chat-input-bar" id="empHelperForm" action="#" method="post">
+              <input 
+                type="text" 
+                id="empHelperInput" 
+                class="chat-input" 
+                placeholder="Ask about your leaves, hours, or attendance..." 
+                aria-label="Ask personal HR question"
+              >
+              <button type="button" id="empSendHelperBtn" class="btn btn-primary" aria-label="Send inquiry">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              </button>
+            </form>
+          </section>
+
+          <!-- COMPANY ANNOUNCEMENTS CARD -->
+          <section class="card" id="announcements" aria-label="Company Announcements">
+            <div class="card-header">
+              <div class="card-title-group">
+                <h3 class="card-title">Company Announcements</h3>
+                <p class="card-subtitle">Official communications and notices</p>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <div class="empty-state" id="empAnnouncementsEmptyState" style="padding: var(--space-6) 0;">
+                <div class="empty-state-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                </div>
+                <h4 class="empty-state-title">No announcements</h4>
+                <p class="empty-state-desc">
+                  When management posts company updates or holiday calendars, they will appear here.
+                </p>
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+      </main>
+    </div>
+
+  </div>
+
+</body>
+</html>

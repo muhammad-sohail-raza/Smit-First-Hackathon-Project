@@ -3,29 +3,530 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Smit First Hackathon Project</title>
+    <title>HCM Lite — Human Capital Management Lite | Login & Setup</title>
 
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
-      integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
     />
 
+    <!-- Master Application Stylesheet -->
     <link rel="stylesheet" href="css/style.css" />
+    <style>
+      /* Pure CSS Tab Switching for Login & First-Run Setup */
+      .tab-view-container {
+        position: relative;
+      }
+
+      #setup-tab-content {
+        display: none;
+      }
+
+      /* When #first-run-setup is targeted via anchor, show setup tab */
+      body:has(#first-run-setup:target) #login-tab-content,
+      #first-run-setup:target ~ .auth-form-card #login-tab-content {
+        display: none;
+      }
+      body:has(#first-run-setup:target) #setup-tab-content,
+      #first-run-setup:target ~ .auth-form-card #setup-tab-content {
+        display: block;
+      }
+
+      /* Fallback / Anchor based tab active styles */
+      .auth-tab-link.active-login {
+        color: var(--color-primary);
+        border-bottom-color: var(--color-primary);
+      }
+    </style>
   </head>
-  <body>
-    <h1>Smit First Hackathon Project</h1>
+  <body class="auth-page">
+    <!-- Desktop Branding & Hero Panel -->
+    <aside class="auth-hero-panel" aria-label="Brand Overview">
+      <div class="hero-brand">
+        <div class="hero-brand-icon">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            width="24"
+            height="24"
+          >
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
+        </div>
+        <div class="hero-brand-name">HCM Lite</div>
+      </div>
 
-    <p id="connectionStatus">Checking Supabase connection...</p>
-    
+      <div class="hero-content">
+        <h1>Smarter HR.<br />Simpler Work.</h1>
+        <p>
+          HCM Lite helps modern organizations manage people, track real-time
+          attendance, and process leave requests seamlessly in one unified,
+          human-centered platform.
+        </p>
 
+        <div class="hero-features">
+          <div class="hero-feature-item">
+            <div class="feature-check-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <span>Employee Directory & Records Management</span>
+          </div>
+          <div class="hero-feature-item">
+            <div class="feature-check-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <span>Smart Attendance & Grace Period Tracking</span>
+          </div>
+          <div class="hero-feature-item">
+            <div class="feature-check-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <span>Automated Leave Balances & Approval Flow</span>
+          </div>
+        </div>
 
-    <!-- Supabase JavaScript library -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <!-- Abstract Dashboard Graphic Illustration -->
+        <div class="hero-illustration">
+          <svg
+            viewBox="0 0 420 180"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            style="width: 100%; height: auto"
+          >
+            <!-- Mini UI Window -->
+            <rect
+              x="10"
+              y="10"
+              width="400"
+              height="160"
+              rx="10"
+              fill="rgba(255,255,255,0.15)"
+              stroke="rgba(255,255,255,0.3)"
+              stroke-width="1.5"
+            />
+            <circle cx="30" cy="28" r="4" fill="rgba(255,255,255,0.6)" />
+            <circle cx="44" cy="28" r="4" fill="rgba(255,255,255,0.4)" />
+            <circle cx="58" cy="28" r="4" fill="rgba(255,255,255,0.4)" />
+            <line
+              x1="10"
+              y1="44"
+              x2="410"
+              y2="44"
+              stroke="rgba(255,255,255,0.2)"
+              stroke-width="1"
+            />
 
-    <!-- Your JavaScript file -->
-    <script src="Scripts\script.js"></script>
+            <!-- Metric Mini Card 1 -->
+            <rect
+              x="30"
+              y="60"
+              width="105"
+              height="42"
+              rx="6"
+              fill="rgba(255,255,255,0.12)"
+            />
+            <rect
+              x="42"
+              y="70"
+              width="45"
+              height="6"
+              rx="3"
+              fill="rgba(255,255,255,0.5)"
+            />
+            <rect x="42" y="82" width="65" height="10" rx="3" fill="#FFFFFF" />
+
+            <!-- Metric Mini Card 2 -->
+            <rect
+              x="145"
+              y="60"
+              width="105"
+              height="42"
+              rx="6"
+              fill="rgba(255,255,255,0.12)"
+            />
+            <rect
+              x="157"
+              y="70"
+              width="50"
+              height="6"
+              rx="3"
+              fill="rgba(255,255,255,0.5)"
+            />
+            <rect x="157" y="82" width="60" height="10" rx="3" fill="#60A5FA" />
+
+            <!-- Metric Mini Card 3 -->
+            <rect
+              x="260"
+              y="60"
+              width="125"
+              height="42"
+              rx="6"
+              fill="rgba(255,255,255,0.12)"
+            />
+            <rect
+              x="272"
+              y="70"
+              width="55"
+              height="6"
+              rx="3"
+              fill="rgba(255,255,255,0.5)"
+            />
+            <rect x="272" y="82" width="70" height="10" rx="3" fill="#34D399" />
+
+            <!-- Mini Progress Bar / Waves -->
+            <path
+              d="M30 140 C 90 115, 140 145, 200 120 C 260 95, 320 135, 385 110"
+              stroke="#FFFFFF"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            />
+            <circle cx="200" cy="120" r="4" fill="#FFFFFF" />
+            <circle cx="385" cy="110" r="4" fill="#60A5FA" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="hero-footer">
+        HCM Lite · Human Capital Management · Saylani Hackathon Phase 1 UI
+      </div>
+    </aside>
+
+    <!-- Right Authentication & Setup Panel -->
+    <main class="auth-form-panel">
+      <!-- Direct Portal Quick Navigation for Testing & Evaluation -->
+      <div class="auth-portal-selector">
+        <span>Direct Workspace Access:</span>
+        <div class="portal-links">
+          <a href="pages/admin.html" class="btn btn-sm btn-primary">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M12 2a10 10 0 1 0 10 10H12V2z" />
+            </svg>
+            Admin Portal
+          </a>
+          <a href="pages/employee.html" class="btn btn-sm btn-secondary">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+            Employee Portal
+          </a>
+        </div>
+      </div>
+
+      <!-- UI State Anchor targets for pure CSS switching -->
+      <div id="sign-in-view"></div>
+      <div id="first-run-setup"></div>
+
+      <!-- Switcher Tabs (CSS Anchor based) -->
+      <nav class="auth-tabs" aria-label="Authentication views">
+        <a
+          href="#sign-in-view"
+          class="auth-tab-link active-login"
+          id="tabSignInLink"
+          >Sign In</a
+        >
+        <a href="#first-run-setup" class="auth-tab-link" id="tabSetupLink"
+          >First-Run Setup</a
+        >
+      </nav>
+
+      <!-- SECTION A: SIGN IN FORM -->
+      <div class="auth-form-card" id="loginCard">
+        <div id="login-tab-content">
+          <header class="auth-card-header">
+            <h2>Welcome back</h2>
+            <p>Please enter your work credentials to access your workspace.</p>
+          </header>
+
+          <form
+            id="loginForm"
+            method="post"
+            action="pages/admin.html"
+            novalidate
+          >
+            <div class="form-group">
+              <label for="loginEmail" class="form-label">
+                Work Email <span class="required">*</span>
+              </label>
+              <input
+                type="email"
+                id="loginEmail"
+                name="email"
+                class="form-control"
+                placeholder="e.g. alex@company.com"
+                required
+                autocomplete="email"
+              />
+              <div class="form-feedback" id="loginEmailFeedback"></div>
+            </div>
+
+            <div class="form-group">
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                "
+              >
+                <label for="loginPassword" class="form-label">
+                  Password <span class="required">*</span>
+                </label>
+                <a
+                  href="#"
+                  class="form-hint"
+                  style="color: var(--color-primary); font-weight: 500"
+                  >Forgot password?</a
+                >
+              </div>
+              <input
+                type="password"
+                id="loginPassword"
+                name="password"
+                class="form-control"
+                placeholder="Enter your password"
+                required
+                autocomplete="current-password"
+              />
+              <div class="form-feedback" id="loginPasswordFeedback"></div>
+            </div>
+
+            <div
+              class="form-group"
+              style="margin-top: var(--space-2); margin-bottom: var(--space-6)"
+            >
+              <label class="form-check">
+                <input type="checkbox" id="rememberMe" name="rememberMe" />
+                <span class="form-check-label"
+                  >Remember this device for 30 days</span
+                >
+              </label>
+            </div>
+
+            <!-- Reserved for general authentication errors in Phase 2 -->
+            <div class="form-feedback" id="loginFeedback"></div>
+
+            <button
+              type="submit"
+              id="loginSubmitBtn"
+              class="btn btn-primary btn-block btn-lg"
+            >
+              Sign In to Workspace
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </button>
+          </form>
+
+          <div style="margin-top: var(--space-6); text-align: center">
+            <p
+              style="
+                font-size: var(--font-size-xs);
+                color: var(--color-text-secondary);
+              "
+            >
+              First time using HCM Lite?
+              <a
+                href="#first-run-setup"
+                style="font-weight: 600; color: var(--color-primary)"
+                >Set up your company workspace</a
+              >
+            </p>
+          </div>
+        </div>
+
+        <!-- SECTION B: FIRST-RUN COMPANY & ADMIN SETUP -->
+        <div id="setup-tab-content">
+          <header class="auth-card-header">
+            <h2>First-Run Company Setup</h2>
+            <p>
+              Configure your organization and create the master administrator
+              account.
+            </p>
+          </header>
+
+          <form
+            id="setupForm"
+            method="post"
+            action="pages/admin.html"
+            novalidate
+          >
+            <div class="form-group">
+              <label for="setupCompanyName" class="form-label">
+                Company / Organization Name <span class="required">*</span>
+              </label>
+              <input
+                type="text"
+                id="setupCompanyName"
+                name="companyName"
+                class="form-control"
+                placeholder="e.g. Acme Corporation"
+                required
+              />
+              <span class="form-hint"
+                >This name will appear on official company payslips and
+                records.</span
+              >
+              <div class="form-feedback" id="setupCompanyFeedback"></div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="setupAdminName" class="form-label">
+                  Admin Full Name <span class="required">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="setupAdminName"
+                  name="adminFullName"
+                  class="form-control"
+                  placeholder="e.g. Sarah Jenkins"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="setupAdminEmail" class="form-label">
+                  Admin Work Email <span class="required">*</span>
+                </label>
+                <input
+                  type="email"
+                  id="setupAdminEmail"
+                  name="adminEmail"
+                  class="form-control"
+                  placeholder="admin@company.com"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="setupAdminPassword" class="form-label">
+                  Admin Password <span class="required">*</span>
+                </label>
+                <input
+                  type="password"
+                  id="setupAdminPassword"
+                  name="adminPassword"
+                  class="form-control"
+                  placeholder="Minimum 8 characters"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="setupConfirmPassword" class="form-label">
+                  Confirm Password <span class="required">*</span>
+                </label>
+                <input
+                  type="password"
+                  id="setupConfirmPassword"
+                  name="confirmPassword"
+                  class="form-control"
+                  placeholder="Re-enter password"
+                  required
+                />
+              </div>
+            </div>
+
+            <!-- Reserved for setup validation errors in Phase 2 -->
+            <div class="form-feedback" id="setupFeedback"></div>
+
+            <button
+              type="submit"
+              id="setupSubmitBtn"
+              class="btn btn-primary btn-block btn-lg"
+              style="margin-top: var(--space-4)"
+            >
+              Create Company & Admin Account
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </button>
+          </form>
+
+          <div style="margin-top: var(--space-6); text-align: center">
+            <p
+              style="
+                font-size: var(--font-size-xs);
+                color: var(--color-text-secondary);
+              "
+            >
+              Already have a workspace?
+              <a
+                href="#sign-in-view"
+                style="font-weight: 600; color: var(--color-primary)"
+                >Return to Sign In</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Security & Compliance Micro Badge -->
+      <footer
+        style="
+          margin-top: var(--space-8);
+          padding-top: var(--space-4);
+          border-top: 1px solid var(--color-border-subtle);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 6px;
+          font-size: var(--font-size-xs);
+          color: var(--color-text-muted);
+        "
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          width="14"
+          height="14"
+        >
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+          <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+        </svg>
+        <span>256-bit encrypted secure session · HCM Lite Platform</span>
+      </footer>
+    </main>
   </body>
 </html>

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Management — HCM Lite</title>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Master Application Stylesheet -->
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <div class="app-shell">
+    
+    <!-- DESKTOP / MOBILE SIDEBAR -->
+    <aside class="app-sidebar" id="sidebarNav" aria-label="Main Navigation">
+      <div class="sidebar-brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <div class="brand-info">
+          <div class="brand-title">
+            HCM Lite
+            <span class="brand-badge">Admin</span>
+          </div>
+          <span class="brand-subtitle">Human Capital Management</span>
+        </div>
+      </div>
+
+      <div class="sidebar-nav-container">
+        <div>
+          <div class="nav-section-title">Core Management</div>
+          <ul class="sidebar-nav">
+            <li class="nav-item">
+              <a href="admin.html" class="nav-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="employees.html" class="nav-link active" aria-current="page">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <span>Employees</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin.html#today-attendance" class="nav-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>Attendance</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="leaves.html" class="nav-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/></svg>
+                <span>Leave Management</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="nav-section-title">Organization & Tools</div>
+          <ul class="sidebar-nav">
+            <li class="nav-item">
+              <a href="settings.html" class="nav-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                <span>Company Settings</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin.html#announcements" class="nav-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                <span>Announcements</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin.html#smart-helper" class="nav-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                <span>Smart Helper</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="user-snippet">
+          <div class="user-avatar" title="System Administrator">SA</div>
+          <div class="user-details">
+            <span class="user-name">System Admin</span>
+            <span class="user-role-label">admin@company.com</span>
+          </div>
+        </div>
+        <a href="../index.html" class="logout-btn" title="Sign Out">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        </a>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT WRAPPER -->
+    <div class="main-wrapper">
+      
+      <!-- TOP NAVIGATION BAR -->
+      <header class="app-topbar">
+        <div class="topbar-left">
+          <a href="#sidebarNav" class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </a>
+
+          <nav class="topbar-breadcrumbs" aria-label="Breadcrumbs">
+            <a href="admin.html">Admin</a>
+            <span class="separator">/</span>
+            <span class="current">Employees</span>
+          </nav>
+        </div>
+
+        <div class="topbar-right">
+          <a href="employee.html" class="role-switcher-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Switch to Employee View
+          </a>
+
+          <div class="topbar-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="search" placeholder="Search employees..." class="search-input" aria-label="Search employees">
+          </div>
+
+          <button type="button" class="icon-btn" aria-label="Notifications">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="18" height="18"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span class="badge-dot" aria-hidden="true"></span>
+          </button>
+
+          <div class="topbar-profile" role="button">
+            <div class="avatar">SA</div>
+            <div class="profile-text">
+              <span class="profile-name">System Admin</span>
+              <span class="profile-role">Admin</span>
+            </div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+      </header>
+
+      <!-- PAGE MAIN CONTENT -->
+      <main class="page-content">
+        
+        <!-- HEADER WITH CONTROLS -->
+        <div class="page-header">
+          <div class="page-title-group">
+            <h1>Employees</h1>
+            <p>Manage your people, department allocations, and employee credentials.</p>
+          </div>
+
+          <div class="page-actions">
+            <a href="#addEmployeeModal" class="btn btn-primary" id="openAddEmployeeBtn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Add Employee
+            </a>
+          </div>
+        </div>
+
+        <!-- EMPLOYEE DIRECTORY SUMMARY METRICS -->
+        <section class="kpi-grid" style="grid-template-columns: repeat(3, 1fr);" aria-label="Employee Metrics">
+          <article class="kpi-card">
+            <div class="kpi-icon-wrap kpi-icon-blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="kpi-details">
+              <span class="kpi-label">Total Workforce</span>
+              <div class="kpi-value" id="metricTotalEmployees">—</div>
+              <span class="kpi-subtext">Onboarded staff records</span>
+            </div>
+          </article>
+
+          <article class="kpi-card">
+            <div class="kpi-icon-wrap kpi-icon-green">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            </div>
+            <div class="kpi-details">
+              <span class="kpi-label">Departments</span>
+              <div class="kpi-value" id="metricTotalDepartments">—</div>
+              <span class="kpi-subtext">Functional business units</span>
+            </div>
+          </article>
+
+          <article class="kpi-card">
+            <div class="kpi-icon-wrap kpi-icon-amber">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <div class="kpi-details">
+              <span class="kpi-label">Active Accounts</span>
+              <div class="kpi-value" id="metricActiveEmployees">—</div>
+              <span class="kpi-subtext">Eligible for portal login</span>
+            </div>
+          </article>
+        </section>
+
+        <!-- FILTERS & TABLE CARD -->
+        <section class="card" aria-label="Employees Directory Table">
+          <div class="card-header" style="background-color: var(--color-white);">
+            <div style="display: flex; align-items: center; gap: var(--space-3); flex: 1; flex-wrap: wrap;">
+              
+              <!-- Search Input -->
+              <div style="position: relative; width: 260px;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="16" height="16" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--color-text-muted);"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input 
+                  type="search" 
+                  id="employeeSearchInput" 
+                  class="form-control" 
+                  placeholder="Filter by name, ID or email..." 
+                  style="padding-left: 36px;"
+                >
+              </div>
+
+              <!-- Department Filter -->
+              <select id="deptFilter" class="form-select" style="width: 180px;">
+                <option value="">All Departments</option>
+                <option value="Engineering">Engineering</option>
+                <option value="Operations">Operations</option>
+                <option value="Human Resources">Human Resources</option>
+                <option value="Design">Design</option>
+                <option value="Sales">Sales</option>
+              </select>
+
+              <!-- Status Filter -->
+              <select id="statusFilter" class="form-select" style="width: 150px;">
+                <option value="">All Statuses</option>
+                <option value="Active">Active</option>
+                <option value="On Leave">On Leave</option>
+                <option value="Inactive">Inactive</option>
+              </select>
+            </div>
+
+            <div class="card-actions">
+              <span class="badge badge-neutral" id="employeeCountBadge">0 Employees Listed</span>
+            </div>
+          </div>
+
+          <!-- TABLE WRAPPER -->
+          <div class="table-responsive" id="employeesTableContainer">
+            <table class="data-table" id="employeesTable">
+              <thead>
+                <tr>
+                  <th>Employee</th>
+                  <th>Employee ID</th>
+                  <th>Department</th>
+                  <th>Email</th>
+                  <th>Monthly Salary</th>
+                  <th>Status</th>
+                  <th style="text-align: right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="employeesTableBody">
+                <!-- Clean empty state in compliance with guidelines (no fabricated employee records) -->
+                <tr>
+                  <td colspan="7" style="padding: 0;">
+                    <div class="empty-state" id="employeesEmptyState">
+                      <div class="empty-state-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="32" height="32">
+                          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                          <circle cx="9" cy="7" r="4"/>
+                          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                      </div>
+                      <h4 class="empty-state-title">No employees found</h4>
+                      <p class="empty-state-desc">
+                        Your organization directory is currently empty. Get started by adding your organization's first employee to HCM Lite.
+                      </p>
+                      <div class="empty-state-action">
+                        <a href="#addEmployeeModal" class="btn btn-primary">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                          Add Your First Employee
+                        </a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+      </main>
+    </div>
+
+  </div>
+
+  <!-- =========================================================================
+       ADD / EDIT EMPLOYEE MODAL (PURE CSS VIA :target)
+       ========================================================================= -->
+  <div class="modal-overlay" id="addEmployeeModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-dialog">
+      
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalTitle">Add New Employee</h3>
+        <a href="#" class="modal-close" aria-label="Close dialog">&times;</a>
+      </div>
+
+      <form id="employeeForm" method="post" action="#" novalidate>
+        <div class="modal-body">
+          <div class="alert alert-info" style="margin-bottom: var(--space-5);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <div>
+              Adding an employee sets up their profile and enables credentials for their personal self-service portal login.
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="empFullName" class="form-label">
+                Full Name <span class="required">*</span>
+              </label>
+              <input 
+                type="text" 
+                id="empFullName" 
+                name="fullName" 
+                class="form-control" 
+                placeholder="e.g. John Doe" 
+                required
+              >
+              <div class="form-feedback" id="empNameFeedback"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="empEmail" class="form-label">
+                Company Email <span class="required">*</span>
+              </label>
+              <input 
+                type="email" 
+                id="empEmail" 
+                name="email" 
+                class="form-control" 
+                placeholder="john.doe@company.com" 
+                required
+              >
+              <div class="form-feedback" id="empEmailFeedback"></div>
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="empDepartment" class="form-label">
+                Department <span class="required">*</span>
+              </label>
+              <select id="empDepartment" name="department" class="form-select" required>
+                <option value="">Select Department</option>
+                <option value="Engineering">Engineering</option>
+                <option value="Operations">Operations</option>
+                <option value="Human Resources">Human Resources</option>
+                <option value="Design">Design</option>
+                <option value="Sales">Sales</option>
+              </select>
+              <div class="form-feedback" id="empDeptFeedback"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="empJobTitle" class="form-label">
+                Designation / Job Title <span class="required">*</span>
+              </label>
+              <input 
+                type="text" 
+                id="empJobTitle" 
+                name="jobTitle" 
+                class="form-control" 
+                placeholder="e.g. Senior Software Engineer" 
+                required
+              >
+              <div class="form-feedback" id="empTitleFeedback"></div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="empSalary" class="form-label">
+              Monthly Salary (PKR) <span class="required">*</span>
+            </label>
+            <input 
+              type="number" 
+              id="empSalary" 
+              name="monthlySalary" 
+              class="form-control" 
+              placeholder="e.g. 150000" 
+              min="0"
+              required
+            >
+            <span class="form-hint">Used for automated daily rate and monthly payslip deduction calculations.</span>
+            <div class="form-feedback" id="empSalaryFeedback"></div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="empPassword" class="form-label">
+                Portal Password <span class="required">*</span>
+              </label>
+              <input 
+                type="password" 
+                id="empPassword" 
+                name="password" 
+                class="form-control" 
+                placeholder="Initial account password" 
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="empConfirmPassword" class="form-label">
+                Confirm Password <span class="required">*</span>
+              </label>
+              <input 
+                type="password" 
+                id="empConfirmPassword" 
+                name="confirmPassword" 
+                class="form-control" 
+                placeholder="Re-enter password" 
+                required
+              >
+            </div>
+          </div>
+
+          <!-- General Form Feedback Container for Phase 2 validation -->
+          <div class="form-feedback" id="empFormFeedback"></div>
+        </div>
+
+        <div class="modal-footer">
+          <a href="#" class="btn btn-secondary" id="cancelEmployeeBtn">Cancel</a>
+          <button type="submit" class="btn btn-primary" id="saveEmployeeBtn">
+            Save Employee
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+</body>
+</html>
