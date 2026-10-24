@@ -40,6 +40,16 @@
         color: var(--color-primary);
         border-bottom-color: var(--color-primary);
       }
+
+      body:has(#first-run-setup:target) #tabSignInLink {
+        color: var(--color-text-secondary);
+        border-bottom-color: transparent;
+      }
+
+      body:has(#first-run-setup:target) #tabSetupLink {
+        color: var(--color-primary);
+        border-bottom-color: var(--color-primary);
+      }
     </style>
   </head>
   <body class="auth-page">
@@ -168,7 +178,7 @@
               rx="3"
               fill="rgba(255,255,255,0.5)"
             />
-            <rect x="157" y="82" width="60" height="10" rx="3" fill="#60A5FA" />
+            <rect x="157" y="82" width="60" height="10" rx="3" fill="#A78BFA" />
 
             <!-- Metric Mini Card 3 -->
             <rect
@@ -197,7 +207,7 @@
               stroke-linecap="round"
             />
             <circle cx="200" cy="120" r="4" fill="#FFFFFF" />
-            <circle cx="385" cy="110" r="4" fill="#60A5FA" />
+            <circle cx="385" cy="110" r="4" fill="#C4B5FD" />
           </svg>
         </div>
       </div>

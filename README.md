@@ -24,32 +24,41 @@ This repository contains **Phase 1: Pure HTML5 & CSS3 Implementation**. It estab
 
 ---
 
-## 🎨 Design System & Visual Identity
+## 🎨 Design System & Visual Identity (Premium Soft Purple Theme)
 
 ### Color System Tokens
-- **Primary Blue:** `#2563EB`
-- **Dark Blue:** `#1D4ED8`
-- **Soft Blue:** `#60A5FA`
-- **Light Blue Background:** `#EFF6FF`
-- **Very Light Blue:** `#F5F9FF`
+- **Primary Purple:** `#7C3AED`
+- **Dark Purple:** `#5B21B6`
+- **Deep Purple:** `#4C1D95`
+- **Soft Purple:** `#A78BFA`
+- **Lavender:** `#C4B5FD`
+- **Light Purple:** `#F3E8FF`
+- **Very Light Purple:** `#FAF7FF`
 - **White Surface:** `#FFFFFF`
-- **Main Text:** `#0F172A`
-- **Secondary Text:** `#64748B`
-- **Border Neutral:** `#E2E8F0`
-- **Subtle Surface:** `#F8FAFC`
-- **Success Green:** `#16A34A` / Background: `#F0FDF4`
-- **Warning Amber:** `#D97706` / Background: `#FFFBEB`
-- **Error Red:** `#DC2626` / Background: `#FEF2F2`
+- **Main Background:** `#FAF9FC`
+- **Secondary Background:** `#F5F3F8`
+- **Main Text:** `#1F1635`
+- **Secondary Text:** `#6B647A`
+- **Muted Text:** `#938BA3`
+- **Border:** `#E9E2F2`
+- **Dark Neutral:** `#292235`
+- **Cool Gray:** `#E5E7EB`
+- **Success Green:** `#15803D` / Background: `#F0FDF4` / Border: `#BBF7D0`
+- **Warning Amber:** `#B45309` / Background: `#FFFBEB` / Border: `#FDE68A`
+- **Error Red:** `#B91C1C` / Background: `#FEF2F2` / Border: `#FECACA`
+- **Information Blue:** `#1D4ED8` / Background: `#EFF6FF` / Border: `#BFDBFE`
+- **Muted Teal:** `#0F766E` / Background: `#F0FDFA`
 
 ### Gradients
-- Primary Accent: `linear-gradient(135deg, #2563EB 0%, #60A5FA 100%)`
-- Light Surface: `linear-gradient(135deg, #EFF6FF 0%, #FFFFFF 100%)`
-- Hero Banner: `linear-gradient(135deg, #1D4ED8 0%, #3B82F6 55%, #93C5FD 100%)`
+- **Primary Purple Gradient:** `linear-gradient(135deg, #6D28D9 0%, #8B5CF6 55%, #A78BFA 100%)`
+- **Deep Premium Gradient:** `linear-gradient(135deg, #4C1D95 0%, #6D28D9 55%, #8B5CF6 100%)`
+- **Soft Lavender-to-White Gradient:** `linear-gradient(135deg, #F3E8FF 0%, #FFFFFF 100%)`
+- **Subtle Purple Tint:** `linear-gradient(135deg, #FAF7FF 0%, #F3E8FF 100%)`
 
 ### Typography & Spacing
-- **Font:** Inter with fallback sans-serif stack (`-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto...`)
-- **Spacing Scale:** Standard 8px scale (`4px`, `8px`, `12px`, `16px`, `20px`, `24px`, `32px`, `40px`, `48px`)
-- **Border Radius:** `8px` (inputs/buttons), `12px` (inner panels), `16px` (cards), `20px` (modals/banners)
+- **Font:** Inter with modern sans-serif fallback stack (`-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto...`)
+- **Spacing Scale:** 8px grid scale (`4px`, `8px`, `12px`, `16px`, `20px`, `24px`, `32px`, `40px`, `48px`)
+- **Border Radius:** `8px` (inputs/buttons), `10px` (form fields), `16px` (cards), `20px` (modals/hero banners)
 
 ---
 
